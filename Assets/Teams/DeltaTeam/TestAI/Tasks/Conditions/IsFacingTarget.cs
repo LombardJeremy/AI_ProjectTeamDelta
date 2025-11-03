@@ -10,6 +10,7 @@ namespace DeltaTeam.Tasks.Actions
     {
         public SharedController Controller;
         public SharedVector2 TargetPosition;
+        public float ErrorMarge = 1f;
 
         public override string OnDrawNodeText()
         {
@@ -20,7 +21,7 @@ namespace DeltaTeam.Tasks.Actions
         {
             Vector2 ownPosition = Controller.Value.OwnSpaceShip.Position;
             float angle = Mathf.Atan2(TargetPosition.Value.y - ownPosition.y, TargetPosition.Value.x - ownPosition.x) * Mathf.Rad2Deg;
-            if (Mathf.Abs(Controller.Value.OwnSpaceShip.Orientation) - Mathf.Abs(angle) < 1f) 
+            if (Mathf.Abs(Mathf.DeltaAngle(Controller.Value.OwnSpaceShip.Orientation,  angle)) < ErrorMarge)
             {
                 return TaskStatus.Success;
             }

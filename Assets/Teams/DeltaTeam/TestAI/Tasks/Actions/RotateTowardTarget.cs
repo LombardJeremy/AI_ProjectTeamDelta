@@ -21,8 +21,7 @@ namespace DeltaTeam.Tasks.Actions
         {
             Vector2 ownPosition = Controller.Value.OwnSpaceShip.Position;
             float angle = Mathf.Atan2(TargetPosition.Value.y - ownPosition.y, TargetPosition.Value.x - ownPosition.x) * Mathf.Rad2Deg;
-            Debug.Log("angle : " + angle + ", TargetPos : " + TargetPosition.Value);
-            Controller.Value.SetRotation(angle);
+            Controller.Value.InputData.targetOrientation = angle;
             return TaskStatus.Success;
         }
     }
