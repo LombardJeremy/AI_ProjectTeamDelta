@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 995883328052245445}
   - component: {fileID: 3039252958360588374}
   - component: {fileID: 918918819902703938}
+  - component: {fileID: -4715837723049670399}
+  - component: {fileID: -1258208671197228265}
   m_Layer: 0
   m_Name: DeltaTeamController
   m_TagString: Untagged
@@ -111,3 +113,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadfbf7e82477dc45ad10976cd9554ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4715837723049670399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672329417856911656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a6b108031fd4147ad0d30e62efd26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSize: {x: 10000, y: 10000}
+  cellRadius: 0.5
+  gridDebug: {fileID: -1258208671197228265}
+--- !u!114 &-1258208671197228265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672329417856911656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86a372f9f5daa442b2a0aecd02f310b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridController: {fileID: -4715837723049670399}
+  displayGrid: 1
+  curDisplayType: 3
