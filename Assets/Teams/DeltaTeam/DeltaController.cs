@@ -11,11 +11,18 @@ namespace DeltaTeam {
 		public SpaceShipView OtherSpaceShip;
 		public SpaceShipView OwnSpaceShip;
 		public GameData GameData;
+		public GameObject PositionPreviewPrefab;
 		public override void Initialize(SpaceShipView spaceship, GameData data)
 		{
 			OtherSpaceShip = data.GetSpaceShipForOwner(1 - spaceship.Owner);
 			OwnSpaceShip = spaceship;
 			GameData = data;
+		}
+
+		public void PreviewPosition(Vector2 position)
+		{
+			GameObject preview = Instantiate(PositionPreviewPrefab, position, Quaternion.identity);
+			Destroy(preview, 1);
 		}
 
 		public override InputData UpdateInput(SpaceShipView spaceship, GameData data)

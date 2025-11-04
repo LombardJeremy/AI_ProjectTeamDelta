@@ -21,6 +21,7 @@ namespace DeltaTeam.Tasks.Actions
         {
             Vector2 ownPosition = Controller.Value.OwnSpaceShip.Position;
             float angle = Mathf.Atan2(TargetPosition.Value.y - ownPosition.y, TargetPosition.Value.x - ownPosition.x) * Mathf.Rad2Deg;
+            angle = AimingHelpers.ComputeSteeringOrient(Controller.Value.OwnSpaceShip, TargetPosition.Value);
             if (Mathf.Abs(Mathf.DeltaAngle(Controller.Value.OwnSpaceShip.Orientation,  angle)) < ErrorMarge)
             {
                 return TaskStatus.Success;
