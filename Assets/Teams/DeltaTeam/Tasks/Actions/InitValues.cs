@@ -15,7 +15,7 @@ namespace DeltaTeam.Tasks.Actions
         {
             if (SharedController.Value == null) return TaskStatus.Failure;
             EnemyPosition.Value = SharedController.Value.OtherSpaceShip.Position;
-            Debug.Log("Init values" + EnemyPosition);
+            Debug.Log("Init values" + EnemyPosition);   
             return TaskStatus.Success;
         }
     }
