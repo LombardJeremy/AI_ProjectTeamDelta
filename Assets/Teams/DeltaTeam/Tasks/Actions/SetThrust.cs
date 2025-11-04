@@ -3,10 +3,10 @@ using DoNotModify;
 
 namespace DeltaTeam.Tasks.Actions
 {
-    [TaskCategory("DeltaTeam/TestAI")]
+    [TaskCategory("DeltaTeam")]
     public class SetThrust : Action
     {
-        public SharedController Controller;
+        public SharedDeltaController Controller;
         public float thrust = 1f;
 
         public override string OnDrawNodeText()

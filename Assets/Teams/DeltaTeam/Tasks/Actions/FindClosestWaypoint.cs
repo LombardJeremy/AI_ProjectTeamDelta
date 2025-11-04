@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace DeltaTeam.Tasks.Actions
 {
-    [TaskCategory("DeltaTeam/TestAI")]
+    [TaskCategory("DeltaTeam")]
     public class FindClosestWaypoint : Action
     {
-        public SharedController Controller;
+        public SharedDeltaController Controller;
         public SharedVector2 WaypointTarget;
 
         public override TaskStatus OnUpdate()

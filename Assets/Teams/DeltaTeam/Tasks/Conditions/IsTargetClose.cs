@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace DeltaTeam.Tasks.Actions
 {
-    [TaskCategory("DeltaTeam/TestAI")]
+    [TaskCategory("DeltaTeam")]
     public class IsTargetClose : Conditional
     {
-        public SharedController Controller;
+        public SharedDeltaController Controller;
         public SharedVector2 TargetPosition;
         public float Distance;
 

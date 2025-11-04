@@ -3,10 +3,10 @@ using DoNotModify;
 
 namespace DeltaTeam.Tasks.Actions
 {
-    [TaskCategory("DeltaTeam/TestAI")]
+    [TaskCategory("DeltaTeam")]
     public class Shoot : Action
     {
-        public SharedController Controller;
+        public SharedDeltaController Controller;
         public bool bShouldShoot = true;
 
         public override string OnDrawNodeText()

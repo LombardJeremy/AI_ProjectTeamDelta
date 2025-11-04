@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace DeltaTeam.Tasks.Actions
 {
-    [TaskCategory("DeltaTeam/TestAI")]
-    public class RotateTowardTarget : Action
+    [TaskCategory("DeltaTeam")]
+    public class IsFacingTarget : Conditional
     {
-
-        public SharedController Controller;
+        public SharedDeltaController Controller;
         public SharedVector2 TargetPosition;
-        
+        public float ErrorMarge = 1f;
+
         public override string OnDrawNodeText()
         {
             return "Current Target : " + TargetPosition.Name;
@@ -21,8 +21,11 @@ namespace DeltaTeam.Tasks.Actions
         {
             Vector2 ownPosition = Controller.Value.OwnSpaceShip.Position;
             float angle = Mathf.Atan2(TargetPosition.Value.y - ownPosition.y, TargetPosition.Value.x - ownPosition.x) * Mathf.Rad2Deg;
-            Controller.Value.InputData.targetOrientation = angle;
-            return TaskStatus.Success;
+            if (Mathf.Abs(Mathf.DeltaAngle(Controller.Value.OwnSpaceShip.Orientation,  angle)) < ErrorMarge)
+            {
+                return TaskStatus.Success;
+            }
+            return TaskStatus.Failure;
         }
     }
 }

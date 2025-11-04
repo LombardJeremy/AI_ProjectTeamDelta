@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace DeltaTeam.Tasks.Actions
 {
-    [TaskCategory("DeltaTeam/TestAI")]
+    [TaskCategory("DeltaTeam")]
     public class InitValues : Action
     {
-        public SharedController SharedController;
+        public SharedDeltaController SharedController;
         public SharedVector2 EnemyPosition;
         public SharedVector2 OwnPosition;
         
