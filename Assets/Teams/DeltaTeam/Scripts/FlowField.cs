@@ -49,7 +49,7 @@ public class FlowField
 			{
 				foreach (var asteroid in listOfAsteroid)
 				{
-					float asteroidRadius = asteroid.Radius;
+					float asteroidRadius = asteroid.Radius + 0.5f;
 					Vector2 center = asteroid.Position;
 					Cell asteroidCellCenter = GetCellFromWorldPos(center);
 					if (curCell.worldPos.x <= asteroidCellCenter.worldPos.x + asteroidRadius &&
