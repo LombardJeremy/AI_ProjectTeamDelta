@@ -11,7 +11,7 @@ namespace DeltaTeam.Tasks.Actions
 
         public SharedDeltaController Controller;
         public SharedVector2 DirectionnalVector;
-        public bool bUseSteering = false;
+        public bool bUseSteering = true;
         
         public override string OnDrawNodeText()
         {
