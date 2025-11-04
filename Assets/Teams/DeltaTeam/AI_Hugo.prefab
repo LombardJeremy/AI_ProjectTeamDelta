@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3039252958360588374}
   - component: {fileID: 918918819902703938}
   m_Layer: 0
-  m_Name: DeltaTeamController
+  m_Name: AI_Hugo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
