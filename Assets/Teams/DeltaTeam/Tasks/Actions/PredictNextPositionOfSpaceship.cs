@@ -24,7 +24,6 @@ namespace DeltaTeam.Tasks.Actions
             SpaceShipView spaceShip = bUseOwnSpaceship ? Controller.Value.OwnSpaceShip : Controller.Value.OtherSpaceShip;
             Vector2 velocity = spaceShip.Velocity * AdvanceTime.Value;
             StoredInformation.Value = spaceShip.Position + velocity;
-            Controller.Value.PreviewPosition(spaceShip.Position + velocity);
             return TaskStatus.Success;
         }
     }

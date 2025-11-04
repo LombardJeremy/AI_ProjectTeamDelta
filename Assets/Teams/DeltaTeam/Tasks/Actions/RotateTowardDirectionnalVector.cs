@@ -11,6 +11,7 @@ namespace DeltaTeam.Tasks.Actions
 
         public SharedDeltaController Controller;
         public SharedVector2 DirectionnalVector;
+        public bool bUseSteering = false;
         
         public override string OnDrawNodeText()
         {
@@ -19,7 +20,9 @@ namespace DeltaTeam.Tasks.Actions
 
         public override TaskStatus OnUpdate()
         {
-            float angle = CustomAimingHelpers.ComputeSteeringOrient(Controller.Value.OwnSpaceShip, DirectionnalVector.Value);
+            float angle;
+            if (bUseSteering) angle = CustomAimingHelpers.ComputeSteeringOrient(Controller.Value.OwnSpaceShip, DirectionnalVector.Value);
+            else angle = Mathf.Atan2(DirectionnalVector.Value.y, DirectionnalVector.Value.x) * Mathf.Rad2Deg;
             Controller.Value.InputData.targetOrientation = angle;
             return TaskStatus.Success;
         }
