@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9eb2378d-fe76-4e3a-855e-d0a8fc8b3ac6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TP_AI_Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TP_AI_Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LauncherConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LauncherConfig.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/DeltaTeamController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/DeltaTeamController.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Scripts/GridController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Scripts/GridController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Tasks/Conditions/IsFacingDirectionnalVector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Tasks/Conditions/IsFacingDirectionnalVector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +22,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e2f443b25d304a2687b17dc8ac7af7221e0400/30/37a6d0fd/Resources.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Teams/DeltaTeam/Tasks/Actions/InfosGetters/GetCurrentDirectionalVector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Teams/DeltaTeam/Tasks/Actions/SetFlowFieldTarget.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -95,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1762248295344</updated>
       <workItem from="1762248299387" duration="3178000" />
-      <workItem from="1762260512539" duration="4956000" />
+      <workItem from="1762260512539" duration="8570000" />
     </task>
     <servers />
   </component>

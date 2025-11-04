@@ -68,4 +68,13 @@ public class GridController : MonoBehaviour
 			gridDebug.DrawFlowField();
 		}
 	}
+
+	public void CreateNewFlowField(Vector2 targetPos)
+	{
+		InitializeFlowField();
+		curFlowField.CreateCostField();
+		Cell destinationCell = curFlowField.GetCellFromWorldPos(targetPos);
+		curFlowField.CreateIntegrationField(destinationCell);
+		curFlowField.CreateFlowField();
+	}
 }

@@ -20,6 +20,7 @@ namespace DeltaTeam.Tasks.Actions
         public override TaskStatus OnUpdate()
         {
             float angle = CustomAimingHelpers.ComputeSteeringOrient(Controller.Value.OwnSpaceShip, DirectionnalVector.Value);
+            Debug.Log("dir : " + DirectionnalVector.Value + " angle : " + angle);
             if (Mathf.Abs(Mathf.DeltaAngle(Controller.Value.OwnSpaceShip.Orientation,  angle)) < ErrorMarge)
             {
                 return TaskStatus.Success;
