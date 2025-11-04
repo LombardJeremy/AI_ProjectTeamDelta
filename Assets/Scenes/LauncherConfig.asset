@@ -17,7 +17,6 @@ MonoBehaviour:
   - {fileID: 6902974904888308072, guid: 6888befb1f0091d47ae75a7dba09f45d, type: 3}
   - {fileID: 6962921054947994555, guid: 4308d152638c9d841a224bc9c9b5d3a4, type: 3}
   - {fileID: 918918819902703938, guid: ee40104e38cff3f4bab7e0693f3ab566, type: 3}
-  - {fileID: 8274488976565004800, guid: 6d8f3c878fef478469ae537c15d3f922, type: 3}
   levelScenes:
   - SampleScene
   - HardScene

@@ -6,22 +6,20 @@ using UnityEngine;
 namespace DeltaTeam.Tasks.Actions
 {
     [TaskCategory("DeltaTeam")]
-    public class IsFacingTarget : Conditional
+    public class IsFacingDirectionnalVector : Conditional
     {
         public SharedDeltaController Controller;
-        public SharedVector2 TargetPosition;
+        public SharedVector2 DirectionnalVector;
         public float ErrorMarge = 1f;
 
         public override string OnDrawNodeText()
         {
-            return "Current Target : " + TargetPosition.Name;
+            return "Current Target : " + DirectionnalVector.Name;
         }
 
         public override TaskStatus OnUpdate()
         {
-            Vector2 ownPosition = Controller.Value.OwnSpaceShip.Position;
-            float angle = Mathf.Atan2(TargetPosition.Value.y - ownPosition.y, TargetPosition.Value.x - ownPosition.x) * Mathf.Rad2Deg;
-            angle = AimingHelpers.ComputeSteeringOrient(Controller.Value.OwnSpaceShip, TargetPosition.Value);
+            float angle = CustomAimingHelpers.ComputeSteeringOrient(Controller.Value.OwnSpaceShip, DirectionnalVector.Value);
             if (Mathf.Abs(Mathf.DeltaAngle(Controller.Value.OwnSpaceShip.Orientation,  angle)) < ErrorMarge)
             {
                 return TaskStatus.Success;
