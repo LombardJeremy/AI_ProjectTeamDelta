@@ -4,7 +4,7 @@ using DoNotModify;
 namespace DeltaTeam.Tasks.Actions
 {
     [TaskCategory("DeltaTeam")]
-    public class Shoot : Action
+    public class ShockWave : Action
     {
         public SharedDeltaController Controller;
 
@@ -12,7 +12,7 @@ namespace DeltaTeam.Tasks.Actions
         {
             if (Controller.Value != null)
             {
-                Controller.Value.InputData.shoot = true;
+                Controller.Value.InputData.fireShockwave = true;
             }
 
             return TaskStatus.Success;
