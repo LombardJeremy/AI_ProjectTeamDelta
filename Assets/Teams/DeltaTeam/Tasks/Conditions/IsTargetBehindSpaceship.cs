@@ -22,7 +22,7 @@ namespace DeltaTeam.Tasks.Actions
             up.x = x * Mathf.Cos(radOritentation) - y * Mathf.Sin(radOritentation);
             up.y = y * Mathf.Cos(radOritentation) + x * Mathf.Sin(radOritentation);
 
-            if (Vector2.Dot(up, spaceShip.Position - TargetPosition.Value) > 0)
+            if (Vector2.Dot(up, spaceShip.Position - TargetPosition.Value) < 0)
             {
                 return TaskStatus.Success;
             }
