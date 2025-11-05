@@ -14,24 +14,10 @@ public class GridController : MonoBehaviour
 	public GameData gameData;
 
 	public Vector2Int gridOffset;
-
-	public static GridController GridControllerInstance
-	{
-		get ;
-		set ;
-	}
+	
 
 	private void Start()
 	{
-		if (GridControllerInstance == null)
-		{
-			GridControllerInstance = this;
-		}
-		else
-		{
-			Destroy(this);
-		}
-
 		gameData = GameManager.Instance.GetGameData();
 	}
 
@@ -39,6 +25,7 @@ public class GridController : MonoBehaviour
 	private void InitializeFlowField()
 	{
         curFlowField = new FlowField(cellRadius, gridSize);
+        curFlowField.gridOffset = gridOffset;
         curFlowField.CreateGrid();
 		gridDebug.SetFlowField(curFlowField);
 	}
