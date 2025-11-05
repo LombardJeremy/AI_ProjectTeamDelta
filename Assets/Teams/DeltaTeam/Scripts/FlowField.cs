@@ -12,6 +12,8 @@ public class FlowField
 	public Cell destinationCell;
 
 	private float cellDiameter;
+	
+	public Vector2Int gridOffset;
 
 	private List<AsteroidView> listOfAsteroid;
 
@@ -31,8 +33,8 @@ public class FlowField
 		{
 			for (int y = 0; y < gridSize.y; y++)
 			{
-				Vector3 worldPos = new Vector3(cellDiameter * x + cellRadius + GridController.GridControllerInstance.gridOffset.x, 
-					cellDiameter * y + cellRadius + GridController.GridControllerInstance.gridOffset.y, 0);
+				Vector3 worldPos = new Vector3(cellDiameter * x + cellRadius + gridOffset.x, 
+					cellDiameter * y + cellRadius + gridOffset.y, 0);
 				grid[x, y] = new Cell(worldPos, new Vector2Int(x, y));
 			}
 		}
@@ -146,7 +148,7 @@ public class FlowField
 
 	public Cell GetCellFromWorldPos(Vector3 worldPos)
 	{
-		Vector2 offset = GridController.GridControllerInstance.gridOffset;
+		Vector2 offset = gridOffset;
 
 		float percentX = (worldPos.x - offset.x) / (gridSize.x * cellDiameter);
 		float percentY = (worldPos.y - offset.y) / (gridSize.y * cellDiameter);
