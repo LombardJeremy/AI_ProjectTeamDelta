@@ -59,22 +59,13 @@ public class FlowField
 					{
 						curCell.IncreaseCost(255);
 					}
-				}
-			}
-			
-			Collider[] obstacles = Physics.OverlapBox(curCell.worldPos, cellHalfExtents, Quaternion.identity, terrainMask);
-			bool hasIncreasedCost = false;
-			foreach (Collider col in obstacles)
-			{
-				if (col.gameObject.layer == LayerMask.GetMask("Asteroid"))
-				{
-					curCell.IncreaseCost(255);
-					continue;
-				}
-				else if (!hasIncreasedCost && col.gameObject.layer == 9)
-				{
-					curCell.IncreaseCost(3);
-					hasIncreasedCost = true;
+					if (curCell.worldPos.x <= asteroidCellCenter.worldPos.x + asteroidRadius + 0.5f &&
+					    curCell.worldPos.x >= asteroidCellCenter.worldPos.x - asteroidRadius + 0.5f&& 
+					    curCell.worldPos.y <= asteroidCellCenter.worldPos.y + asteroidRadius + 0.5f&&
+					    curCell.worldPos.y >= asteroidCellCenter.worldPos.y - asteroidRadius + 0.5f)
+					{
+						curCell.IncreaseCost(3);
+					}
 				}
 			}
 		}
