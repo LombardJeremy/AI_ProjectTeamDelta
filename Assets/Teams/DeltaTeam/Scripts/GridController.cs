@@ -71,6 +71,13 @@ public class GridController : MonoBehaviour
 
 	public void CreateNewFlowField(Vector2 targetPos)
 	{
+		if (curFlowField != null)
+		{
+			if (curFlowField.destinationCell != null && (Vector2)curFlowField.destinationCell.worldPos == targetPos)
+			{
+				return;
+			}
+		}
 		InitializeFlowField();
 		curFlowField.CreateCostField();
 		Cell destinationCell = curFlowField.GetCellFromWorldPos(targetPos);
