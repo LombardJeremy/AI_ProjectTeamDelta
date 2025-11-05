@@ -16,7 +16,7 @@ namespace DeltaTeam.Tasks.Actions
         
         public override string OnDrawNodeText()
         {
-            if (Controller.Value != null) return "Controller missing !";
+            if (Controller.Value == null) return "Controller missing !";
             return base.OnDrawNodeText();
         }
 
