@@ -11,11 +11,19 @@ namespace DeltaTeam.Tasks.Actions
 
         public SharedDeltaController Controller;
         public SharedVector2 TargetPosition;
+        public float RunningForTime = 0;
         public bool bUseSteering = true;
-        
+
+        private float _timeStart;
         public override string OnDrawNodeText()
         {
             return "Current Target : " + TargetPosition.Name;
+        }
+
+        public override void OnStart()
+        {
+            _timeStart = Time.time;
+            base.OnStart();
         }
 
         public override TaskStatus OnUpdate()
@@ -25,6 +33,10 @@ namespace DeltaTeam.Tasks.Actions
             if (bUseSteering) angle = AimingHelpers.ComputeSteeringOrient(Controller.Value.OwnSpaceShip, TargetPosition.Value);
             else {angle = Mathf.Atan2(TargetPosition.Value.y - ownPosition.y, TargetPosition.Value.x - ownPosition.x) * Mathf.Rad2Deg;}
             Controller.Value.InputData.targetOrientation = Mathf.Repeat(angle + 180, 360f);
+            if (_timeStart + RunningForTime >= Time.time)
+            {
+                return TaskStatus.Running;
+            }
             return TaskStatus.Success;
         }
     }
