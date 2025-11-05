@@ -15,14 +15,14 @@ namespace DeltaTeam.Tasks.Actions
         public override TaskStatus OnUpdate()
         {
             SpaceShipView spaceShip = bUseOwnSpaceship ? Controller.Value.OwnSpaceShip : Controller.Value.OtherSpaceShip;
-            Vector2 up = Vector2.up;
-            float x = Vector2.up.x;
-            float y = Vector2.up.y;
+            Vector2 right;
+            float x = Vector2.right.x;
+            float y = Vector2.right.y;
             float radOritentation = spaceShip.Orientation * Mathf.Deg2Rad;
-            up.x = x * Mathf.Cos(radOritentation) - y * Mathf.Sin(radOritentation);
-            up.y = y * Mathf.Cos(radOritentation) + x * Mathf.Sin(radOritentation);
+            right.x = x * Mathf.Cos(radOritentation) - y * Mathf.Sin(radOritentation);
+            right.y = y * Mathf.Cos(radOritentation) + x * Mathf.Sin(radOritentation);
 
-            if (Vector2.Dot(up, spaceShip.Position - TargetPosition.Value) < 0)
+            if (Vector2.Dot(right, spaceShip.Position - TargetPosition.Value) > 0)
             {
                 return TaskStatus.Success;
             }
