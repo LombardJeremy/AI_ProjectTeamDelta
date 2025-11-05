@@ -54,17 +54,11 @@ public class FlowField
 					float asteroidRadius = asteroid.Radius + 0.5f;
 					Vector2 center = asteroid.Position;
 					Cell asteroidCellCenter = GetCellFromWorldPos(center);
-					if (curCell.worldPos.x <= asteroidCellCenter.worldPos.x + asteroidRadius &&
-					    curCell.worldPos.x >= asteroidCellCenter.worldPos.x - asteroidRadius && 
-					    curCell.worldPos.y <= asteroidCellCenter.worldPos.y + asteroidRadius &&
-					    curCell.worldPos.y >= asteroidCellCenter.worldPos.y - asteroidRadius)
+					if (Vector2.Distance(center, (Vector2)curCell.worldPos) <= asteroidRadius - 0.2f)
 					{
 						curCell.IncreaseCost(255);
 					}
-					if (curCell.worldPos.x <= asteroidCellCenter.worldPos.x + asteroidRadius + 0.5f &&
-					    curCell.worldPos.x >= asteroidCellCenter.worldPos.x - asteroidRadius + 0.5f&& 
-					    curCell.worldPos.y <= asteroidCellCenter.worldPos.y + asteroidRadius + 0.5f&&
-					    curCell.worldPos.y >= asteroidCellCenter.worldPos.y - asteroidRadius + 0.5f)
+					if (Vector2.Distance(center, (Vector2)curCell.worldPos) <= asteroidRadius + 0.5f)
 					{
 						curCell.IncreaseCost(3);
 					}
