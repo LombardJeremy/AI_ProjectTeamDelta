@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7672329417856911656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995883328052245445}
+  - component: {fileID: 3039252958360588374}
+  - component: {fileID: 918918819902703938}
+  m_Layer: 0
+  m_Name: AI_Hugo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &995883328052245445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672329417856911656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1233454, y: -2.9148889, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3039252958360588374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672329417856911656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWhenEnabled: 1
+  asynchronousLoad: 0
+  pauseWhenDisabled: 0
+  restartWhenComplete: 0
+  logTaskChanges: 0
+  group: 0
+  resetValuesOnRestart: 0
+  externalBehavior: {fileID: 0}
+  mBehaviorSource:
+    behaviorName: Behaviorhugo
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(315.5,45.151516)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(11.211792,114.999878)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":"","Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":false},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0.302734375,140.757446)"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"DeltaTeam.Tasks.Actions.InitValues","NodeData":{"Offset":"(-446.839966,140.757446)"},"ID":3,"Name":"Init
+        Values","Instant":true,"SharedDeltaControllerSharedController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":0},"SharedVector2EnemyPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"EnemyPosition","IsShared":true,"Vector2mValue":"(0,0)"},"SharedVector2OwnPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":null,"Vector2mValue":"(0,0)"}},{"Type":"DeltaTeam.Tasks.Actions.ResetInputData","NodeData":{"Offset":"(-243.140839,135.031082)"},"ID":4,"Name":"Reset
+        Input Data","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":1}},{"Type":"DeltaTeam.Tasks.Actions.SetThrust","NodeData":{"Offset":"(-9.697266,140.757446)"},"ID":5,"Name":"Set
+        Thrust","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":2},"Singlethrust":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(110.302734,150.757446)"},"ID":6,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-582.4834,108.562744)"},"ID":7,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"DeltaTeam.Tasks.Actions.GetRemainingTime","NodeData":{"Offset":"(-180.883423,168.562683)"},"ID":8,"Name":"Get
+        Remaining Time","Instant":true,"SharedDeltaControllerSharedController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":3},"SharedFloatRemainingTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"time
+        remaining","IsShared":true,"SinglemValue":0}},{"Type":"IIM.CompareFloat","NodeData":{"Offset":"(38.3164978,191.762756)"},"ID":9,"Name":"Compare
+        Float","Instant":true,"SharedFloatvariable":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"time
+        remaining","IsShared":true,"SinglemValue":0},"OPERATORop":"GREATER","SharedFloatcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":40}},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(186.470627,186.470444)"},"ID":10,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-251.483521,173.240982)"},"ID":11,"Name":"Go
+        to Closest Waypoint","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"DeltaTeam.Tasks.Actions.FindClosestWaypoint","NodeData":{"Offset":"(-153.065918,126.129028)"},"ID":12,"Name":"Find
+        Closest Waypoint","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":4},"SharedVector2WaypointTarget":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"TargetWaypoint","IsShared":true,"Vector2mValue":"(0,0)"}},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(56.934082,126.129028)"},"ID":13,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-83.06592,186.129028)"},"ID":14,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"DeltaTeam.Tasks.Actions.IsFacingTarget","NodeData":{"Offset":"(-103.065918,126.129028)"},"ID":15,"Name":"Is
+        Facing Target","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":5},"SharedVector2TargetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"TargetWaypoint","IsShared":true,"Vector2mValue":"(0,0)"},"SingleErrorMarge":1},{"Type":"DeltaTeam.Tasks.Actions.SetThrust","NodeData":{"Offset":"(76.93408,126.129028)"},"ID":16,"Name":"Set
+        Thrust","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":6},"Singlethrust":1}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(266.934082,176.129028)"},"ID":17,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"DeltaTeam.Tasks.Actions.RotateTowardTarget","NodeData":{"Offset":"(-93.06592,146.129028)"},"ID":18,"Name":"Rotate
+        Toward Target","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":7},"SharedVector2TargetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"TargetWaypoint","IsShared":true,"Vector2mValue":"(0,0)"}},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(116.934082,156.129028)"},"ID":19,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"DeltaTeam.Tasks.Actions.IsFacingTarget","NodeData":{"Offset":"(-93.06592,116.129028)"},"ID":20,"Name":"Is
+        Facing Target","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":8},"SharedVector2TargetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"TargetWaypoint","IsShared":true,"Vector2mValue":"(0,0)"},"SingleErrorMarge":10},{"Type":"DeltaTeam.Tasks.Actions.SetThrust","NodeData":{"Offset":"(86.93408,116.129028)"},"ID":21,"Name":"Set
+        Thrust","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":9},"Singlethrust":1}]}]}]}]}]}]}]}]}]},"DetachedTasks":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(1769.62622,420.552)"},"ID":22,"Name":"FireShockwave","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"DeltaTeam.Tasks.Actions.IsTargetClose","NodeData":{"Offset":"(-233.06604,146.129028)"},"ID":23,"Name":"Is
+        SpaceShip Close","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":10},"SharedVector2TargetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"EnemyPosition","IsShared":true,"Vector2mValue":"(0,0)"},"SingleDistance":2},{"Type":"DeltaTeam.Tasks.Actions.ShockWave","NodeData":{"Offset":"(-13.06604,166.129028)"},"ID":24,"Name":"Shock
+        Wave","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":11}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(2649.626,410.552)"},"ID":25,"Name":"Shoot
+        if in Danger","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"DeltaTeam.Tasks.Actions.IsTargetClose","NodeData":{"Offset":"(-553.06604,146.129028)"},"ID":26,"Name":"Is
+        SpaceShip Close","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":12},"SharedVector2TargetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"EnemyPosition","IsShared":true,"Vector2mValue":"(0,0)"},"SingleDistance":5},{"Type":"DeltaTeam.Tasks.Actions.PredictNextPositionOfSpaceship","NodeData":{"Offset":"(-313.06604,146.129028)"},"ID":27,"Name":"Predict
+        Next Position Of Spaceship","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":13},"SharedVector2StoredInformation":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"EnemyPosition","IsShared":true,"Vector2mValue":"(0,0)"},"BooleanbUseOwnSpaceship":false,"SharedFloatAdvanceTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(-93.06592,146.129028)"},"ID":28,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-93.06604,166.129028)"},"ID":29,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"DeltaTeam.Tasks.Actions.IsFacingTarget","NodeData":{"Offset":"(-143.06604,116.129028)"},"ID":30,"Name":"Is
+        Facing Target","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":14},"SharedVector2TargetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"EnemyPosition","IsShared":true,"Vector2mValue":"(0,0)"},"SingleErrorMarge":1},{"Type":"DeltaTeam.Tasks.Actions.Shoot","NodeData":{"Offset":"(56.934082,126.129028)"},"ID":31,"Name":"Shoot","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":null}}]},{"Type":"DeltaTeam.Tasks.Actions.RotateTowardTarget","NodeData":{"Offset":"(96.93396,166.129028)"},"ID":32,"Name":"Rotate
+        Toward Target","Instant":true,"SharedDeltaControllerController":{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":15},"SharedVector2TargetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"EnemyPosition","IsShared":true,"Vector2mValue":"(0,0)"}}]}]}],"Variables":[{"Type":"DeltaTeam.Tasks.Actions.SharedDeltaController","Name":"Controller","IsShared":true,"DeltaControllermValue":16},{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"EnemyPosition","IsShared":true,"Vector2mValue":"(0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"TargetWaypoint","IsShared":true,"Vector2mValue":"(0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"time
+        remaining","IsShared":true,"SinglemValue":0}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects:
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        - {fileID: 918918819902703938}
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.12
+  gizmoViewMode: 2
+  showBehaviorDesignerGizmo: 1
+--- !u!114 &918918819902703938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672329417856911656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cadfbf7e82477dc45ad10976cd9554ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PositionPreviewPrefab: {fileID: 6089979087595218665, guid: 124a568b15e450547a6c9399ef419c38,
+    type: 3}

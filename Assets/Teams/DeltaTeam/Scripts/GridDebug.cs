@@ -1,15 +1,16 @@
-﻿using UnityEditor;
+﻿using BehaviorDesigner.Runtime.Tasks.Unity.UnityQuaternion;
+using UnityEditor;
 using UnityEngine;
 
 
-public enum FlowFieldDisplayType { None, AllIcons, DestinationIcon, CostField, IntegrationField };
+public enum FlowFieldDisplayType { None = -1, AllIcons = 0, DestinationIcon, CostField, IntegrationField };
 
 public class GridDebug : MonoBehaviour
 {
 	public GridController gridController;
 	public bool displayGrid;
 
-	public FlowFieldDisplayType curDisplayType;
+	public FlowFieldDisplayType curDisplayType = FlowFieldDisplayType.AllIcons;
 
 	private Vector2Int gridSize;
 	private float cellRadius;
@@ -67,80 +68,79 @@ public class GridDebug : MonoBehaviour
 	{
 		GameObject iconGO = new GameObject();
 		SpriteRenderer iconSR = iconGO.AddComponent<SpriteRenderer>();
+		iconGO.transform.localScale = new Vector3(iconGO.transform.localScale.x * 0.5f, iconGO.transform.localScale.y * 0.5f,
+			iconGO.transform.localScale.z * 0.5f);
 		iconGO.transform.parent = transform;
 		iconGO.transform.position = cell.worldPos;
+		iconSR.sortingLayerID = SortingLayer.NameToID("DebugIcons");
 
 		if (cell.cost == 0)
 		{
 			iconSR.sprite = ffIcons[3];
-			Quaternion newRot = Quaternion.Euler(90, 0, 0);
-			iconGO.transform.rotation = newRot;
+			iconGO.transform.rotation = Quaternion.identity;
 		}
 		else if (cell.cost == byte.MaxValue)
 		{
 			iconSR.sprite = ffIcons[2];
-			Quaternion newRot = Quaternion.Euler(90, 0, 0);
-			iconGO.transform.rotation = newRot;
+			iconGO.transform.rotation = Quaternion.identity;
 		}
 		else if (cell.bestDirection == GridDirection.North)
 		{
 			iconSR.sprite = ffIcons[0];
-			Quaternion newRot = Quaternion.Euler(90, 0, 0);
-			iconGO.transform.rotation = newRot;
+			iconGO.transform.rotation = Quaternion.Euler(0, 0, 0);
+
 		}
 		else if (cell.bestDirection == GridDirection.South)
 		{
 			iconSR.sprite = ffIcons[0];
-			Quaternion newRot = Quaternion.Euler(90, 180, 0);
-			iconGO.transform.rotation = newRot;
+			iconGO.transform.rotation = Quaternion.Euler(0, 0, 180);
+			;
 		}
 		else if (cell.bestDirection == GridDirection.East)
 		{
 			iconSR.sprite = ffIcons[0];
-			Quaternion newRot = Quaternion.Euler(90, 90, 0);
-			iconGO.transform.rotation = newRot;
+			iconGO.transform.rotation = Quaternion.Euler(0, 0, 270);
 		}
 		else if (cell.bestDirection == GridDirection.West)
 		{
 			iconSR.sprite = ffIcons[0];
-			Quaternion newRot = Quaternion.Euler(90, 270, 0);
-			iconGO.transform.rotation = newRot;
+			iconGO.transform.rotation = Quaternion.Euler(0, 0, 90);
 		}
 		else if (cell.bestDirection == GridDirection.NorthEast)
 		{
 			iconSR.sprite = ffIcons[1];
-			Quaternion newRot = Quaternion.Euler(90, 0, 0);
-			iconGO.transform.rotation = newRot;
+			iconGO.transform.rotation = Quaternion.Euler(0, 0, 0);
 		}
 		else if (cell.bestDirection == GridDirection.NorthWest)
 		{
 			iconSR.sprite = ffIcons[1];
-			Quaternion newRot = Quaternion.Euler(90, 270, 0);
+			Quaternion newRot = Quaternion.Euler(0, 0, 90);
 			iconGO.transform.rotation = newRot;
 		}
 		else if (cell.bestDirection == GridDirection.SouthEast)
 		{
 			iconSR.sprite = ffIcons[1];
-			Quaternion newRot = Quaternion.Euler(90, 90, 0);
+			Quaternion newRot = Quaternion.Euler(0, 0, 270);
 			iconGO.transform.rotation = newRot;
 		}
 		else if (cell.bestDirection == GridDirection.SouthWest)
 		{
 			iconSR.sprite = ffIcons[1];
-			Quaternion newRot = Quaternion.Euler(90, 180, 0);
+			Quaternion newRot = Quaternion.Euler(0, 0, 180);
 			iconGO.transform.rotation = newRot;
 		}
 		else
 		{
 			iconSR.sprite = ffIcons[0];
 		}
+		
 	}
 
 	public void ClearCellDisplay()
 	{
 		foreach (Transform t in transform)
 		{
-			GameObject.Destroy(t.gameObject);
+			Destroy(t.gameObject);
 		}
 	}
 	
@@ -180,7 +180,6 @@ public class GridDebug : MonoBehaviour
 					Handles.Label(curCell.worldPos, curCell.bestCost.ToString(), style);
 				}
 				break;
-				
 			default:
 				break;
 		}
