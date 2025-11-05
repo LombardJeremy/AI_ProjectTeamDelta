@@ -36,9 +36,10 @@ namespace DeltaTeam {
 			InputData.targetOrientation = spaceship.Orientation;
 		}
 
-		public void PreviewPosition(Vector2 position)
+		public void PreviewPosition(Vector2 position, Color color)
 		{
 			GameObject preview = Instantiate(PositionPreviewPrefab, position, Quaternion.identity);
+			preview.GetComponent<SpriteRenderer>().color = color;
 			Destroy(preview, 1);
 		}
 
