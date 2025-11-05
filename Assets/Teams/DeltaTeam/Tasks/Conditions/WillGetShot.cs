@@ -12,6 +12,7 @@ namespace DeltaTeam.Tasks.Actions
         public SharedDeltaController Controller;
         public SharedFloat TimeTillShot;
         public SharedVector2 Intersection;
+        public SharedVector2 DangerousBulletPosition;
         public float TimeTolerance;
 
         public override void OnDrawGizmos()
@@ -45,6 +46,7 @@ namespace DeltaTeam.Tasks.Actions
                 {
                     TimeTillShot.Value = targetTimeToIntersection;
                     Intersection.Value = intersection;
+                    DangerousBulletPosition.Value = bullet.Position;
                     return TaskStatus.Success;
                 }
             }
