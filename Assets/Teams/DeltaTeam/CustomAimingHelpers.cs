@@ -21,4 +21,20 @@ public static class CustomAimingHelpers
         position.y = Mathf.Clamp(position.y, -6, 6);
         return position;
     }
+
+    public static bool IsTargetBehindSpaceship(SpaceShipView spaceShip, Vector2 targetPosition)
+    {
+        Vector2 right;
+        float x = Vector2.right.x;
+        float y = Vector2.right.y;
+        float radOritentation = spaceShip.Orientation * Mathf.Deg2Rad;
+        right.x = x * Mathf.Cos(radOritentation) - y * Mathf.Sin(radOritentation);
+        right.y = y * Mathf.Cos(radOritentation) + x * Mathf.Sin(radOritentation);
+
+        if (Vector2.Dot(right, spaceShip.Position - targetPosition) > 0)
+        {
+            return true;
+        }
+        return false;
+    }
 }

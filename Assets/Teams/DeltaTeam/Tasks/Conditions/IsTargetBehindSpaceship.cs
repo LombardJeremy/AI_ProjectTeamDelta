@@ -15,6 +15,7 @@ namespace DeltaTeam.Tasks.Actions
         public override TaskStatus OnUpdate()
         {
             SpaceShipView spaceShip = bUseOwnSpaceship ? Controller.Value.OwnSpaceShip : Controller.Value.OtherSpaceShip;
+            /*
             Vector2 right;
             float x = Vector2.right.x;
             float y = Vector2.right.y;
@@ -26,7 +27,9 @@ namespace DeltaTeam.Tasks.Actions
             {
                 return TaskStatus.Success;
             }
-            return TaskStatus.Failure;
+            return TaskStatus.Failure;*/
+
+            return CustomAimingHelpers.IsTargetBehindSpaceship(spaceShip, TargetPosition.Value) ? TaskStatus.Success : TaskStatus.Failure;
         }
     }
 }
