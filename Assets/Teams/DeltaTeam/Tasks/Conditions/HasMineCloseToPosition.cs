@@ -12,7 +12,8 @@ namespace DeltaTeam.Tasks.Actions
         public SharedDeltaController Controller;
         public SharedVector2 TargetPosition;
         public SharedVector2 ReturnedMinePosition;
-        public float Radius;
+        public float Radius = 0.75f;
+        public bool bSkipUnactiveMine = true;
         
         public override string OnDrawNodeText()
         {
@@ -27,6 +28,7 @@ namespace DeltaTeam.Tasks.Actions
             {
                 if (Vector2.Distance(mine.Position, TargetPosition.Value) < Radius)
                 {
+                    if (bSkipUnactiveMine && !mine.IsActive) continue;
                     ReturnedMinePosition.Value = mine.Position;
                     return TaskStatus.Success;
                 }
