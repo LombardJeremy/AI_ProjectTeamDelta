@@ -25,11 +25,13 @@ public class ScoreManager : MonoBehaviour
         {
             waipointScoreList[wayPoint] = 0.0f;
         }
-        CalculateAllWeightAtPlayerPos();
+        CalculateAllWeightAtPlayerPos(weightTweak, weightTweakEnnemy);
     }
 
-    public Dictionary<WayPointView, float> CalculateAllWeightAtPlayerPos()
+    public Dictionary<WayPointView, float> CalculateAllWeightAtPlayerPos(float ownWeight, float ennemyWeight)
     {
+        weightTweak = ownWeight;
+        weightTweakEnnemy = ennemyWeight;
         foreach (var wayPoint in GameManager.Instance.GetGameData().WayPoints)
         {
             CalculateWaypointWeight(wayPoint);
