@@ -70,6 +70,5 @@ public class ScoreManager : MonoBehaviour
         maxWeight -= Mathf.Exp(Vector2.Distance(waypointToCalculate.Position,  spaceShipController.OtherSpaceShip.Position) * weightTweakEnnemy);
         if(maxWeight <= 0) maxWeight = 0.0001f;
         waipointScoreList[waypointToCalculate] = maxWeight;
-        Debug.Log(maxWeight);
     }
 }

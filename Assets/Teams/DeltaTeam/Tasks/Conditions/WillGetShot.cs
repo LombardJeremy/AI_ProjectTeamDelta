@@ -19,7 +19,6 @@ namespace DeltaTeam.Tasks.Actions
         {
             if (Intersection.Value != null)
             {
-                Debug.Log(Intersection.Value);
                 Gizmos.color = Color.yellow;
                 Gizmos.DrawWireSphere(Intersection.Value, 0.5f);
             }
