@@ -295,7 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridController: {fileID: 85681697937789548}
   displayGrid: 1
-  curDisplayType: 0
+  curDisplayType: -1
 --- !u!114 &2666573970053476022
 MonoBehaviour:
   m_ObjectHideFlags: 0
