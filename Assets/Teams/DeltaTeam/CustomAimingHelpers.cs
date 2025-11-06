@@ -5,6 +5,7 @@ using DoNotModify;
 
 public static class CustomAimingHelpers
 {
+    
     public static float ComputeSteeringOrient(SpaceShipView spaceship, Vector2 directionnalVector, float overshootFactor = 1.2f)
     {
         float deltaAngle = Vector2.SignedAngle(spaceship.Velocity, directionnalVector);
@@ -12,5 +13,12 @@ public static class CustomAimingHelpers
         deltaAngle = Mathf.Clamp(deltaAngle, -170, 170);
         float velocityOrientation = Vector2.SignedAngle(Vector2.right, spaceship.Velocity);
         return velocityOrientation + deltaAngle;
+    }
+
+    public static Vector2 ClampPositionToGridSize(Vector2 position)
+    {
+        position.x = Mathf.Clamp(position.x, -10, 10);
+        position.y = Mathf.Clamp(position.y, -6, 6);
+        return position;
     }
 }

@@ -29,7 +29,7 @@ namespace DeltaTeam.Tasks.Actions
             if (!bPredictThrust)
             {
                 Vector2 velocity = spaceShip.Velocity * AdvanceTime.Value;
-                StoredInformation.Value = spaceShip.Position + velocity;
+                StoredInformation.Value = CustomAimingHelpers.ClampPositionToGridSize(spaceShip.Position + velocity);
                 return TaskStatus.Success;
             }
             else
@@ -43,7 +43,7 @@ namespace DeltaTeam.Tasks.Actions
                     velocity = Vector2.ClampMagnitude(velocity + addedDirection, spaceShip.SpeedMax);
                     predictedPos += velocity * Time.fixedDeltaTime;
                 }
-                StoredInformation.Value = predictedPos;
+                StoredInformation.Value = CustomAimingHelpers.ClampPositionToGridSize(predictedPos);
             }
             return TaskStatus.Success;
         }
