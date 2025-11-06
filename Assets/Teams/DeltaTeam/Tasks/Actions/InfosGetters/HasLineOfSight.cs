@@ -23,7 +23,6 @@ namespace DeltaTeam.Tasks.Actions
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(TargetPosition.Value, 0.5f);
             Gizmos.DrawLine(SharedController.Value.OwnSpaceShip.Position, TargetPosition.Value);
-            Debug.Log(TargetPosition.Value);
             base.OnDrawGizmos();
         }
 
