@@ -1,14 +1,23 @@
 using System;
 using System.Collections.Generic;
+using DeltaTeam;
 using DoNotModify;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private Dictionary<WayPointView, float> waipointScoreList;
+    private Dictionary<WayPointView, float> waipointScoreList = new();
+
+    private DeltaController spaceShipController;
+    
 
     private void Start()
     {
+        spaceShipController = GetComponent<DeltaController>();
+        if (!spaceShipController)
+        {
+            return;
+        }
         foreach (var wayPoint in GameManager.Instance.GetGameData().WayPoints)
         {
             waipointScoreList[wayPoint] = 0.0f;
@@ -29,12 +38,13 @@ public class ScoreManager : MonoBehaviour
     {
         WayPointView key = null;
         float value = Int32.MaxValue;
-        foreach (var asteroidWithHisValue in waipointScoreList)
+        foreach (var waypointWithHisValue in waipointScoreList)
         {
-            if (asteroidWithHisValue.Value < value)
+            if(key!=null && key.Owner == spaceShipController.OwnSpaceShip.Owner) continue;
+            if (waypointWithHisValue.Value < value)
             {
-                value = asteroidWithHisValue.Value;
-                key = asteroidWithHisValue.Key;
+                value = waypointWithHisValue.Value;
+                key = waypointWithHisValue.Key;
             }
         }
         return key;
@@ -42,13 +52,18 @@ public class ScoreManager : MonoBehaviour
 
     public void CalculateWaypointWeight(WayPointView waypointToCalculate)
     {
+        if (waypointToCalculate.Owner == spaceShipController.OwnSpaceShip.Owner)
+        {
+            waipointScoreList[waypointToCalculate] = 0;
+            return;
+        }
         float maxWeight = 0.0f;
         foreach (var waypoint in GameManager.Instance.GetGameData().WayPoints)
         {
             if(waypoint == waypointToCalculate) continue;
             maxWeight += Vector2.Distance(waypoint.Position, waypointToCalculate.Position);
         }
-        maxWeight += Vector2.Distance(waypointToCalculate.Position, transform.position);
+        maxWeight += Vector2.Distance(waypointToCalculate.Position,  spaceShipController.OwnSpaceShip.Position);
         waipointScoreList[waypointToCalculate] = maxWeight;
     }
 }
