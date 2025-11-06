@@ -5,31 +5,31 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private Dictionary<AsteroidView, float> asteroidScoreList;
+    private Dictionary<WayPointView, float> waipointScoreList;
 
     private void Start()
     {
-        foreach (var asteroid in GameManager.Instance.GetGameData().Asteroids)
+        foreach (var wayPoint in GameManager.Instance.GetGameData().WayPoints)
         {
-            asteroidScoreList[asteroid] = 0.0f;
+            waipointScoreList[wayPoint] = 0.0f;
         }
         CalculateAllWeightAtPlayerPos();
     }
 
-    public Dictionary<AsteroidView, float> CalculateAllWeightAtPlayerPos()
+    public Dictionary<WayPointView, float> CalculateAllWeightAtPlayerPos()
     {
-        foreach (var asteroid in GameManager.Instance.GetGameData().Asteroids)
+        foreach (var wayPoint in GameManager.Instance.GetGameData().WayPoints)
         {
-            CalculateAsteroidWeight(asteroid);
+            CalculateWaypointWeight(wayPoint);
         }
-        return asteroidScoreList;
+        return waipointScoreList;
     }
 
-    public AsteroidView GetAsteroidWithLessWeight()
+    public WayPointView GetWaypointWithLessWeight()
     {
-        AsteroidView key = null;
+        WayPointView key = null;
         float value = Int32.MaxValue;
-        foreach (var asteroidWithHisValue in asteroidScoreList)
+        foreach (var asteroidWithHisValue in waipointScoreList)
         {
             if (asteroidWithHisValue.Value < value)
             {
@@ -40,15 +40,15 @@ public class ScoreManager : MonoBehaviour
         return key;
     }
 
-    public void CalculateAsteroidWeight(AsteroidView asteroidToCalculate)
+    public void CalculateWaypointWeight(WayPointView waypointToCalculate)
     {
         float maxWeight = 0.0f;
-        foreach (var asteroid in GameManager.Instance.GetGameData().Asteroids)
+        foreach (var waypoint in GameManager.Instance.GetGameData().WayPoints)
         {
-            if(asteroid == asteroidToCalculate) continue;
-            maxWeight += Vector2.Distance(asteroid.Position, asteroidToCalculate.Position);
+            if(waypoint == waypointToCalculate) continue;
+            maxWeight += Vector2.Distance(waypoint.Position, waypointToCalculate.Position);
         }
-        maxWeight += Vector2.Distance(asteroidToCalculate.Position, transform.position);
-        asteroidScoreList[asteroidToCalculate] = maxWeight;
+        maxWeight += Vector2.Distance(waypointToCalculate.Position, transform.position);
+        waipointScoreList[waypointToCalculate] = maxWeight;
     }
 }
