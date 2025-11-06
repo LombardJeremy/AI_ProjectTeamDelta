@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private Dictionary<WayPointView, float> waipointScoreList;
+    private Dictionary<WayPointView, float> waipointScoreList = new();
 
     private void Start()
     {
