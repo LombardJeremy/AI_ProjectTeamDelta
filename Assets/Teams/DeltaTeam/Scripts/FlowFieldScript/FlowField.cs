@@ -40,32 +40,66 @@ public class FlowField
 		}
 	}
 
+	//Deprecated for optimisation
+	// public void CreateCostField()
+	// {
+	// 	Vector3 cellHalfExtents = Vector3.one * cellRadius;
+	// 	cellHalfExtents.z = 0;
+	// 	int terrainMask = LayerMask.GetMask("Asteroid");
+	// 	foreach (Cell curCell in grid)
+	// 	{
+	// 		if (listOfAsteroid.Count != 0)
+	// 		{
+	// 			foreach (var asteroid in listOfAsteroid)
+	// 			{
+	// 				float asteroidRadius = asteroid.Radius + 0.5f;
+	// 				Vector2 center = asteroid.Position;
+	// 				Cell asteroidCellCenter = GetCellFromWorldPos(center);
+	// 				if (Vector2.Distance(center, (Vector2)curCell.worldPos) <= asteroidRadius - 0.2f)
+	// 				{
+	// 					curCell.IncreaseCost(255);
+	// 				}
+	// 				if (Vector2.Distance(center, (Vector2)curCell.worldPos) <= asteroidRadius + 0.5f)
+	// 				{
+	// 					curCell.IncreaseCost(3);
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+	
+	
 	public void CreateCostField()
 	{
-		Vector3 cellHalfExtents = Vector3.one * cellRadius;
-		cellHalfExtents.z = 0;
-		int terrainMask = LayerMask.GetMask("Asteroid");
-		foreach (Cell curCell in grid)
+		listOfAsteroid = GameManager.Instance.GetGameData().Asteroids;
+
+		foreach (var asteroid in listOfAsteroid)
 		{
-			if (listOfAsteroid.Count != 0)
+			float asteroidRadius = asteroid.Radius + 0.5f;
+			Vector2 center = asteroid.Position;
+
+			// calculer la zone à vérifier dans la grille
+			int minX = Mathf.Max(0, Mathf.FloorToInt((center.x - asteroidRadius - gridOffset.x) / cellDiameter));
+			int maxX = Mathf.Min(gridSize.x - 1, Mathf.CeilToInt((center.x + asteroidRadius - gridOffset.x) / cellDiameter));
+			int minY = Mathf.Max(0, Mathf.FloorToInt((center.y - asteroidRadius - gridOffset.y) / cellDiameter));
+			int maxY = Mathf.Min(gridSize.y - 1, Mathf.CeilToInt((center.y + asteroidRadius - gridOffset.y) / cellDiameter));
+
+			for (int x = minX; x <= maxX; x++)
 			{
-				foreach (var asteroid in listOfAsteroid)
+				for (int y = minY; y <= maxY; y++)
 				{
-					float asteroidRadius = asteroid.Radius + 0.5f;
-					Vector2 center = asteroid.Position;
-					Cell asteroidCellCenter = GetCellFromWorldPos(center);
-					if (Vector2.Distance(center, (Vector2)curCell.worldPos) <= asteroidRadius - 0.2f)
-					{
+					Cell curCell = grid[x, y];
+					float dist = Vector2.Distance(center, (Vector2)curCell.worldPos);
+
+					if (dist <= asteroidRadius - 0.2f)
 						curCell.IncreaseCost(255);
-					}
-					if (Vector2.Distance(center, (Vector2)curCell.worldPos) <= asteroidRadius + 0.5f)
-					{
+					else if (dist <= asteroidRadius + 0.5f)
 						curCell.IncreaseCost(3);
-					}
 				}
 			}
 		}
 	}
+
 
 	public void CreateIntegrationField(Cell _destinationCell)
 	{
