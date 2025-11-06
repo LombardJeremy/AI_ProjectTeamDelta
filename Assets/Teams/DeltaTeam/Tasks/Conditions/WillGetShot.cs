@@ -14,6 +14,7 @@ namespace DeltaTeam.Tasks.Actions
         public SharedVector2 Intersection;
         public SharedVector2 DangerousBulletPosition;
         public float TimeTolerance;
+        public float SameVelocityAngleTolerance = 60;
 
         public override void OnDrawGizmos()
         {
@@ -28,7 +29,7 @@ namespace DeltaTeam.Tasks.Actions
         public override TaskStatus OnUpdate()
         {
             List<BulletView> gameDataBullets = Controller.Value.GameData.Bullets;
-            SpaceShipView spaceShip = Controller.Value.OwnSpaceShip;
+            SpaceShipView spaceShip = Controller.Value.OtherSpaceShip;
             foreach (BulletView bullet in gameDataBullets)
             {
                 Vector2 intersection;
@@ -43,6 +44,14 @@ namespace DeltaTeam.Tasks.Actions
                 float timeDiff = bulletTimeToIntersection - targetTimeToIntersection;
                 if (Mathf.Abs(timeDiff) < TimeTolerance)
                 {
+                    if (!CustomAimingHelpers.IsTargetBehindSpaceship(spaceShip, bullet.Position))
+                    {
+                        if (Mathf.Abs(Vector2.Angle(bullet.Velocity, spaceShip.Velocity)) < SameVelocityAngleTolerance)
+                        {
+                            Debug.Log("has skipped bullet");
+                            continue;
+                        }
+                    }
                     TimeTillShot.Value = targetTimeToIntersection;
                     Intersection.Value = intersection;
                     DangerousBulletPosition.Value = bullet.Position;
