@@ -18,14 +18,6 @@ namespace DeltaTeam.Tasks.Actions
             else return "Has Line Of Sight with " + TargetPosition.Name;
         }
 
-        public override void OnDrawGizmos()
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(TargetPosition.Value, 0.5f);
-            Gizmos.DrawLine(SharedController.Value.OwnSpaceShip.Position, TargetPosition.Value);
-            base.OnDrawGizmos();
-        }
-
         public override TaskStatus OnUpdate()
         {
             Vector2 spaceShipPosition = SharedController.Value.OwnSpaceShip.Position;

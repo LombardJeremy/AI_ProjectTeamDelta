@@ -48,7 +48,6 @@ namespace DeltaTeam.Tasks.Actions
                     {
                         if (Mathf.Abs(Vector2.Angle(bullet.Velocity, spaceShip.Velocity)) < SameVelocityAngleTolerance)
                         {
-                            Debug.Log("has skipped bullet");
                             continue;
                         }
                     }
