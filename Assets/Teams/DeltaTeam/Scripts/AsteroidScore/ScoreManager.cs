@@ -40,7 +40,7 @@ public class ScoreManager : MonoBehaviour
         float value = Int32.MaxValue;
         foreach (var waypointWithHisValue in waipointScoreList)
         {
-            if(key!=null && key.Owner == spaceShipController.OwnSpaceShip.Owner) continue;
+            if(key!=null || key.Owner == spaceShipController.OwnSpaceShip.Owner) continue;
             if (waypointWithHisValue.Value < value)
             {
                 value = waypointWithHisValue.Value;
@@ -64,6 +64,7 @@ public class ScoreManager : MonoBehaviour
             maxWeight += Vector2.Distance(waypoint.Position, waypointToCalculate.Position);
         }
         maxWeight += Vector2.Distance(waypointToCalculate.Position,  spaceShipController.OwnSpaceShip.Position);
+        maxWeight -= Vector2.Distance(waypointToCalculate.Position,  spaceShipController.OtherSpaceShip.Position);
         waipointScoreList[waypointToCalculate] = maxWeight;
     }
 }
