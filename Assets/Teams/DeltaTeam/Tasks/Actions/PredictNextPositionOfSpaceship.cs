@@ -1,5 +1,6 @@
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
+using BehaviorDesigner.Runtime.Tasks.Unity.UnityPhysics2D;
 using DoNotModify;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,11 +27,11 @@ namespace DeltaTeam.Tasks.Actions
         public override TaskStatus OnUpdate()
         {
             SpaceShipView spaceShip = bUseOwnSpaceship ? Controller.Value.OwnSpaceShip : Controller.Value.OtherSpaceShip;
+            Vector2 finalPos = spaceShip.Position;
             if (!bPredictThrust)
             {
                 Vector2 velocity = spaceShip.Velocity * AdvanceTime.Value;
-                StoredInformation.Value = CustomAimingHelpers.ClampPositionToGridSize(spaceShip.Position + velocity);
-                return TaskStatus.Success;
+                finalPos = spaceShip.Position + velocity;
             }
             else
             {
@@ -43,8 +44,14 @@ namespace DeltaTeam.Tasks.Actions
                     velocity = Vector2.ClampMagnitude(velocity + addedDirection, spaceShip.SpeedMax);
                     predictedPos += velocity * Time.fixedDeltaTime;
                 }
-                StoredInformation.Value = CustomAimingHelpers.ClampPositionToGridSize(predictedPos);
+                finalPos = predictedPos;
             }
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(spaceShip.Position, finalPos - spaceShip.Position, (finalPos - spaceShip.Position).magnitude, LayerMask.GetMask("Asteroid"));
+            if (raycastHit2D.collider != null && raycastHit2D.collider.gameObject.CompareTag("Asteroid"))
+            {
+                finalPos = raycastHit2D.point;
+            }
+            StoredInformation.Value = CustomAimingHelpers.ClampPositionToGridSize(finalPos);
             return TaskStatus.Success;
         }
     }
