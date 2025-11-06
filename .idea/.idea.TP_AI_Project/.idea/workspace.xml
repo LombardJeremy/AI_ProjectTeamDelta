@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9eb2378d-fe76-4e3a-855e-d0a8fc8b3ac6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TP_AI_Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TP_AI_Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/AI_Hugo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/AI_Hugo.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/AI_Alexandre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/AI_Alexandre.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Scripts/AsteroidScore/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Scripts/AsteroidScore/ScoreManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Tasks/Actions/InfosGetters/GetBestWaypoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Tasks/Actions/InfosGetters/GetBestWaypoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Scripts/FlowFieldScript/GridController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Scripts/FlowFieldScript/GridController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Tasks/Actions/SetFlowFieldTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Teams/DeltaTeam/Tasks/Actions/SetFlowFieldTarget.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

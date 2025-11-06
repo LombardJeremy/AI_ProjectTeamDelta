@@ -26,7 +26,7 @@ namespace DeltaTeam.Tasks.Actions
                         Vector2.Distance(waypoint.Position, ownPosition))
                     {
                         bestWP = waypoint;
-                        Debug.Log(waypoint.Position);
+                        //Debug.Log(waypoint.Position);
                     }
                 }
             }
