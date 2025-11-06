@@ -1,0 +1,273 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7672329417856911656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995883328052245445}
+  - component: {fileID: 3025656397943293664}
+  - component: {fileID: -1911359882146516613}
+  - component: {fileID: 8596525217215212858}
+  - component: {fileID: 3039252958360588374}
+  m_Layer: 0
+  m_Name: BattleStarTeamController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &995883328052245445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672329417856911656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1233454, y: -2.9148889, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3025656397943293664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672329417856911656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f5808a4b07cd248b1ebbdd42b4f958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {x: 0, y: 0}
+  _behaviourTree: {fileID: 3039252958360588374}
+  _dataContainer: {fileID: -1911359882146516613}
+  asteroidLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  mineLayer:
+    serializedVersion: 2
+    m_Bits: 8192
+  avoidDistance: 1
+  radiusDetectionAsteroid: 30
+  distanceDetectionAsteroid: 2.5
+  rotationDetectionAsteroid: 3
+  rotationDetectionMine: 3
+  radiusDetectionMine: 180
+  distanceDetectionMine: 3
+  distByRotationReduceMine: 0.015
+  distByRotationReduceAsteroid: 0.08
+  clockWiseOnly: 0
+  maxDistanceThrust: 3
+  easing:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-1911359882146516613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672329417856911656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5506fa5ee42dc654e9fe7ca4bc1fb951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _behaviourTree: {fileID: 3039252958360588374}
+  _idealWaypointAlgo: {fileID: 8596525217215212858}
+  _canHitEnnemyAngleTolerance: 1.2
+  _shockwaveRadius: 0
+  _nearbyBulletRadius: 3
+  _nearbyMineRadius: 2
+  _nearbyWaypointsRadius: 5
+  _scorerWaypointDistance: 1.5
+  _nearestWaypointsMinimumDifference: 0.5
+--- !u!114 &8596525217215212858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672329417856911656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045ca6181838cc6448ba171b018b9c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreByRange:
+  - Distance: 1.5
+    Points: 6
+  - Distance: 2.5
+    Points: 5
+  - Distance: 3.5
+    Points: 4
+  - Distance: 4.5
+    Points: 3
+  - Distance: 5.5
+    Points: 2
+  _scoreByRangeDefault: 1
+  PointsIfInFront: 4
+  PointsIfInBack: 1
+  IsWayPointNearby: 3
+  IsNOWayPointNearby: 1
+  EnnemyWaypointPoints: 3
+  NeutralWaypointPoints: 1
+--- !u!114 &3039252958360588374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672329417856911656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWhenEnabled: 1
+  asynchronousLoad: 0
+  pauseWhenDisabled: 0
+  restartWhenComplete: 0
+  logTaskChanges: 0
+  group: 0
+  resetValuesOnRestart: 0
+  externalBehavior: {fileID: 0}
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(380.6087,-164.347778)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Parallel","NodeData":{"Offset":"(-3.7535944,96.44867)"},"ID":1,"Name":"Parallel","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(-638.7597,116.111115)"},"ID":2,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":"","Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":false},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(1.21003723,105.586136)"},"ID":3,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.IsGoingToHitMine","NodeData":{"Offset":"(-157.032059,118.41362)"},"ID":4,"Name":"Is
+        Going To Hit Mine","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":0,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedFloatFieldOfView":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":30},"SharedFloatMinimumDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1.5},"SharedFloatMaximumDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.3}},{"Type":"BattleStarTeam.SetFireInput","NodeData":{"Offset":"(3.208127,124.771179)"},"ID":5,"Name":"Set
+        Fire Input","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":1,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBoolFire":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolLandMine":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoolShockwave":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(150.336411,119.408485)"},"ID":6,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.5},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(810.5116,123.888885)"},"ID":7,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":"","Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":false},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(2.39550781,350.885529)"},"ID":8,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-2390.917,253.243683)"},"ID":9,"Name":"Sequence","Instant":true,"Disabled":true,"AbortTypeabortType":"LowerPriority","Children":[{"Type":"BattleStarTeam.IsEnnemyInFieldOfView","NodeData":{"Offset":"(-200.344,147.931122)"},"ID":10,"Name":"Is
+        Ennemy In Field Of View","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":2,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedFloatFieldOfViewAngle":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":200},"SharedBoolInvertedFOV":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(105.132813,138.9809)"},"ID":11,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-409.6184,265.735077)"},"ID":12,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.IsEnnemyInRange","NodeData":{"Offset":"(-313.102448,126.552)"},"ID":13,"Name":"Is
+        Ennemy In Range","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":3,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedFloatMaxDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1.5}},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(4.828003,143.103638)"},"ID":14,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-334.21048,183.157745)"},"ID":15,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.IsPlayerHit","NodeData":{"Offset":"(-130,150)"},"ID":16,"Name":"Is
+        Player Hit","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":4,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}}},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnFailure","NodeData":{"Offset":"(79.017334,169.030029)"},"ID":17,"Name":"Return
+        Failure","Instant":true,"Children":[{"Type":"BattleStarTeam.SetFireInput","NodeData":{"Offset":"(4.280884,123.240723)"},"ID":18,"Name":"Set
+        Fire Input","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":5,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBoolFire":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoolLandMine":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolShockwave":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(140.526337,202.105133)"},"ID":19,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnFailure","NodeData":{"Offset":"(-140.416626,160)"},"ID":20,"Name":"Return
+        Failure","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(0,160)"},"ID":21,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(259.091064,257.2727)"},"ID":22,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.IsEnnemyInRange","NodeData":{"Offset":"(-310,130)"},"ID":23,"Name":"Is
+        Ennemy In Range","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":6,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedFloatMaxDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":3}},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(190,150)"},"ID":24,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-204.736633,209.999908)"},"ID":25,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.IsPlayerHit","NodeData":{"Offset":"(-130,150)"},"ID":26,"Name":"Is
+        Player Hit","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":7,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}}},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnFailure","NodeData":{"Offset":"(64.73663,150.000031)"},"ID":27,"Name":"Return
+        Failure","Instant":true,"Children":[{"Type":"BattleStarTeam.MoveToEnnemy","NodeData":{"Offset":"(-4.9942627,146.3346)"},"ID":28,"Name":"Move
+        To Ennemy","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":8,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":9,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedTargetDataTarget":{"Type":"BattleStarTeam.SharedTargetData","Name":"Target","IsShared":true,"TargetDatamValue":{"Vector2TargetPosition":"(0,0)","SingleTargetRadius":0,"Vector2NextTarget":"(0,0)","BooleanIsSecondTargetSet":false}},"SharedFloatDistanceThreshold":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":3}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnFailure","NodeData":{"Offset":"(154.2102,188.421143)"},"ID":29,"Name":"Return
+        Failure","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(3.74902344,172.5)"},"ID":30,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-314.339874,218.9473)"},"ID":31,"Name":"Sequence","Instant":true,"Disabled":true,"AbortTypeabortType":"LowerPriority","Children":[{"Type":"BattleStarTeam.IsEnnemyInRange","NodeData":{"Offset":"(-676.061157,173.910736)"},"ID":32,"Name":"Is
+        Ennemy In Range","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":10,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedFloatMaxDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4.5}},{"Type":"BattleStarTeam.IsEnnemyInFieldOfView","NodeData":{"Offset":"(-506.0613,150.101166)"},"ID":33,"Name":"Is
+        Ennemy In Field Of View","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":11,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedFloatFieldOfViewAngle":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":220},"SharedBoolInvertedFOV":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}},{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(-356.0615,160.101166)"},"ID":34,"Name":"Inverter","Instant":true,"Children":[{"Type":"BattleStarTeam.IsEnnemyHit","NodeData":{"Offset":"(-3.286621,98.26178)"},"ID":35,"Name":"Is
+        Ennemy Hit","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":12,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(3.88041878,140.079437)"},"ID":36,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0.68860054,152.2999)"},"ID":37,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.IsEnnemyInRange","NodeData":{"Offset":"(-968.235962,125.293823)"},"ID":38,"Name":"Is
+        Ennemy In Range","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":13,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedFloatMaxDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":5}},{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(-824.706238,144.705566)"},"ID":39,"Name":"Inverter","Instant":true,"Children":[{"Type":"BattleStarTeam.IsEnnemyHit","NodeData":{"Offset":"(0,100)"},"ID":40,"Name":"Is
+        Ennemy Hit","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":14,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnSuccess","NodeData":{"Offset":"(-570,205.789017)"},"ID":41,"Name":"Return
+        Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-10,106.666687)"},"ID":42,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.IsEnnemyInRange","NodeData":{"Offset":"(-441.5151,155.15152)"},"ID":43,"Name":"Is
+        Ennemy In Range","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":15,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedFloatMaxDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2}},{"Type":"BattleStarTeam.HasEnoughEnergy","NodeData":{"Offset":"(-266.666656,164.285721)"},"ID":44,"Name":"Has
+        Enough Energy","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":16,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"EnergyCompare_compare":"HasMoreThan","SharedFloatRequiredEnergy":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.6}},{"Type":"BattleStarTeam.ActivateShockwave","NodeData":{"Offset":"(-96.66671,164.285721)"},"ID":45,"Name":"Activate
+        Shockwave","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":17,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}}},{"Type":"BattleStarTeam.LookAtEnnemy","NodeData":{"Offset":"(48.5713577,160)"},"ID":46,"Name":"Look
+        At Ennemy","Instant":true,"SharedInputDataInputData":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":18,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":19,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedFloatAcceptanceThreshold":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"Boolean_useBounceAlgo":true,"Single_bounceSphereCastMultiplier":3,"LayerMask_wallsLayer":4096},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(167.160034,164.18042)"},"ID":47,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.25},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}},{"Type":"BattleStarTeam.SetFireInput","NodeData":{"Offset":"(282.7204,159.294)"},"ID":48,"Name":"Set
+        Fire Input","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":20,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBoolFire":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolLandMine":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoolShockwave":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Parallel","NodeData":{"Offset":"(280,240)"},"ID":49,"Name":"Parallel","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnSuccess","NodeData":{"Offset":"(-300,140)"},"ID":50,"Name":"Return
+        Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,200)"},"ID":51,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.MoveToEnnemy","NodeData":{"Offset":"(-298.709717,160)"},"ID":52,"Name":"Move
+        To Ennemy","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":21,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":22,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedTargetDataTarget":{"Type":"BattleStarTeam.SharedTargetData","Name":"Target","IsShared":true,"TargetDatamValue":{"Vector2TargetPosition":"(0,0)","SingleTargetRadius":0,"Vector2NextTarget":"(0,0)","BooleanIsSecondTargetSet":false}},"SharedFloatDistanceThreshold":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":3}},{"Type":"BattleStarTeam.IsWaypointCloserToEnnemy","NodeData":{"Offset":"(-96.25035,162.866364)"},"ID":53,"Name":"Is
+        Waypoint Closer To Ennemy","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":23,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedTargetDataWaypointDestination":{"Type":"BattleStarTeam.SharedTargetData","Name":"LockedTargetData","IsShared":true,"TargetDatamValue":{"Vector2TargetPosition":"(0,0)","SingleTargetRadius":0,"Vector2NextTarget":"(0,0)","BooleanIsSecondTargetSet":false}},"SharedFloatPathWidth":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}},{"Type":"BattleStarTeam.MoveToTarget","NodeData":{"Offset":"(92.02582,167.694336)"},"ID":54,"Name":"Move
+        To Target","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":24,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":25,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedTargetDataWaypointDestination":{"Type":"BattleStarTeam.SharedTargetData","Name":"LockedTargetData","IsShared":true,"TargetDatamValue":{"Vector2TargetPosition":"(0,0)","SingleTargetRadius":0,"Vector2NextTarget":"(0,0)","BooleanIsSecondTargetSet":false}},"SharedTargetDataTarget":{"Type":"BattleStarTeam.SharedTargetData","Name":"Target","IsShared":true,"TargetDatamValue":{"Vector2TargetPosition":"(0,0)","SingleTargetRadius":0,"Vector2NextTarget":"(0,0)","BooleanIsSecondTargetSet":false}},"SharedFloatDistanceThreshold":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.5}},{"Type":"BattleStarTeam.MoveToEnnemy","NodeData":{"Offset":"(240,174.838745)"},"ID":55,"Name":"Move
+        To Ennemy","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":26,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":27,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedTargetDataTarget":{"Type":"BattleStarTeam.SharedTargetData","Name":"Target","IsShared":true,"TargetDatamValue":{"Vector2TargetPosition":"(0,0)","SingleTargetRadius":0,"Vector2NextTarget":"(0,0)","BooleanIsSecondTargetSet":false}},"SharedFloatDistanceThreshold":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":3}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnSuccess","NodeData":{"Offset":"(200,131.282013)"},"ID":56,"Name":"Return
+        Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,110.555573)"},"ID":57,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.HasEnoughEnergy","NodeData":{"Offset":"(-105.641022,131.538467)"},"ID":58,"Name":"Has
+        Enough Energy","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":28,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"EnergyCompare_compare":"HasMoreThan","SharedFloatRequiredEnergy":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.75}},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(99.33557,121.631531)"},"ID":59,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.FireAssist","NodeData":{"Offset":"(-91.24999,159.583328)"},"ID":60,"Name":"Fire
+        Assist","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":29,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBattleStarDataBattleStarDataRef":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":30,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}}},{"Type":"BattleStarTeam.SetFireInput","NodeData":{"Offset":"(81.9744949,156.029739)"},"ID":61,"Name":"Set
+        Fire Input","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":31,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBoolFire":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoolLandMine":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolShockwave":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}}]}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnSuccess","NodeData":{"Offset":"(993.8727,247.120026)"},"ID":62,"Name":"Return
+        Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-6.410224,101.538452)"},"ID":63,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.HasEnoughEnergy","NodeData":{"Offset":"(-215.641815,133.846619)"},"ID":64,"Name":"Has
+        Enough Energy","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":32,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"EnergyCompare_compare":"HasMoreThan","SharedFloatRequiredEnergy":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.75}},{"Type":"BattleStarTeam.IsEnnemyInRange","NodeData":{"Offset":"(-67.85784,140.1836)"},"ID":65,"Name":"Is
+        Ennemy In Range","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":33,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedFloatMaxDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2}},{"Type":"BattleStarTeam.LookAtEnnemy","NodeData":{"Offset":"(74.20339,144.139832)"},"ID":66,"Name":"Look
+        At Ennemy","Instant":true,"SharedInputDataInputData":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":34,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":35,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedFloatAcceptanceThreshold":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":5},"Boolean_useBounceAlgo":false,"Single_bounceSphereCastMultiplier":0,"LayerMask_wallsLayer":0},{"Type":"BattleStarTeam.FireAssist","NodeData":{"Offset":"(208.885254,126.52179)"},"ID":67,"Name":"Fire
+        Assist","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":36,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBattleStarDataBattleStarDataRef":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":37,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}}}]}]}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Parallel","NodeData":{"Offset":"(1455.94385,240.687927)"},"ID":68,"Name":"Parallel","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-220,200)"},"ID":69,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.ChooseIdealWaypoint","NodeData":{"Offset":"(-100,160)"},"ID":70,"Name":"Choose
+        Ideal Waypoint","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":38,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":39,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedTargetDataWaypointDestination":{"Type":"BattleStarTeam.SharedTargetData","Name":"LockedTargetData","IsShared":true,"TargetDatamValue":{"Vector2TargetPosition":"(0,0)","SingleTargetRadius":0,"Vector2NextTarget":"(0,0)","BooleanIsSecondTargetSet":false}}},{"Type":"BattleStarTeam.MoveToTarget","NodeData":{"Offset":"(96.88104,167.4195)"},"ID":71,"Name":"Move
+        To Target","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":40,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":41,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"SharedTargetDataWaypointDestination":{"Type":"BattleStarTeam.SharedTargetData","Name":"LockedTargetData","IsShared":true,"TargetDatamValue":{"Vector2TargetPosition":"(0,0)","SingleTargetRadius":0,"Vector2NextTarget":"(0,0)","BooleanIsSecondTargetSet":false}},"SharedTargetDataTarget":{"Type":"BattleStarTeam.SharedTargetData","Name":"Target","IsShared":true,"TargetDatamValue":{"Vector2TargetPosition":"(0,0)","SingleTargetRadius":0,"Vector2NextTarget":"(0,0)","BooleanIsSecondTargetSet":false}},"SharedFloatDistanceThreshold":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.8}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnSuccess","NodeData":{"Offset":"(160.434723,119.130554)"},"ID":72,"Name":"Return
+        Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(4.61572266,100.646606)"},"ID":73,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BattleStarTeam.HasEnoughEnergy","NodeData":{"Offset":"(-86.41162,161.282532)"},"ID":74,"Name":"Has
+        Enough Energy","Instant":true,"SharedBattleStarDataData":{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":42,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},"EnergyCompare_compare":"HasMoreThan","SharedFloatRequiredEnergy":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.85}},{"Type":"BattleStarTeam.SetFireInput","NodeData":{"Offset":"(56.1518555,163.846985)"},"ID":75,"Name":"Set
+        Fire Input","Instant":true,"SharedInputDataInputDataRef":{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":43,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},"SharedBoolFire":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoolLandMine":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolShockwave":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}}]}]}]}]}]}]},"Variables":[{"Type":"BattleStarTeam.SharedInputData","Name":"InputData","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarController/InputData","PropertyMappingOwner":44,"InputDatamValue":{"Singlethrust":0,"SingletargetOrientation":0,"Booleanshoot":false,"BooleandropMine":false,"BooleanfireShockwave":false}},{"Type":"BattleStarTeam.SharedBattleStarData","Name":"Data","IsShared":true,"PropertyMapping":"BattleStarTeam.BattleStarData/BlackboardData","PropertyMappingOwner":45,"BattleStarBlackboardDatamValue":{"Int32SelfOwner":0,"SingleTimeRemaining":0,"SingleCanHitEnnemyAngleTolerance":0,"BooleanAreAsteroidBetweenShips":false,"List`1NearByBullets":[],"List`1NearbyMines":[],"List`1NearbyWaypoints":[],"Int32NumberOfSelfWayPoints":0,"Int32NumberOfEnnemyWayPoints":0}},{"Type":"BattleStarTeam.SharedTargetData","Name":"Target","IsShared":true,"TargetDatamValue":{"Vector2TargetPosition":"(0,0)","SingleTargetRadius":0,"Vector2NextTarget":"(0,0)","BooleanIsSecondTargetSet":false}},{"Type":"BattleStarTeam.SharedTargetData","Name":"LockedTargetData","IsShared":true,"TargetDatamValue":{"Vector2TargetPosition":"(0,0)","SingleTargetRadius":0,"Vector2NextTarget":"(0,0)","BooleanIsSecondTargetSet":false}}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects:
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        - {fileID: 7672329417856911656}
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.12
+  gizmoViewMode: 0
+  showBehaviorDesignerGizmo: 0
