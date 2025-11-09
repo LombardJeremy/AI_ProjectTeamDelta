@@ -68,10 +68,10 @@ public class GridDebug : MonoBehaviour
 	{
 		GameObject iconGO = new GameObject();
 		SpriteRenderer iconSR = iconGO.AddComponent<SpriteRenderer>();
-		iconGO.transform.localScale = new Vector3(iconGO.transform.localScale.x * 0.25f, iconGO.transform.localScale.y * 0.25f,
-			iconGO.transform.localScale.z * 0.25f);
+		iconGO.transform.localScale = new Vector3(iconGO.transform.localScale.x * 0.5f, iconGO.transform.localScale.y * 0.5f,
+			iconGO.transform.localScale.z * 0.5f);
 		iconGO.transform.parent = transform;
-		iconGO.transform.position = cell.worldPos;
+		iconGO.transform.position = new Vector3(cell.worldPos.x, cell.worldPos.y, cell.worldPos.z -1);
 		iconSR.sortingLayerID = SortingLayer.NameToID("DebugIcons");
 
 		if (cell.cost == 0)
